@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--here we will write the code related to the sudoku board layout in this file-->
+<resources>
+    <declare-styleable name="sudoku_board">
+        <!--first attribute for our sudoku board-->
+        <!--here the board color for our sudoku board will be declared-->
+        <attr name = "boardColor" format="color"/>
+
+        <!--cell fill color of the cell that the user clicks on-->
+        <attr name = "cellFillColor" format="color"/>
+        <!--the color of the corresponding row and columns that are gonna be highlighted-->
+        <attr name = "cellsHighlightColor" format="color"/>
+
+        <!--default text color -->
+        <attr name = "letterColor" format="color"/>
+
+        <!--solved text color the numbers that the computer is gonna add in to the game board-->
+        <attr name = "letterColorSolve" format="color"/>
+    </declare-styleable>
+</resources>
