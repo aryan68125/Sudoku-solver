@@ -1,8 +1,14 @@
 package com.example.sudokusolver;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -120,6 +126,35 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run(){
             gameBoardSolver.Solve(gameBoard);
+        }
+    }
+
+    //this function will allow us to set up menue item on the app title bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        //onCreateOptionsMenu(Menu menu object)
+        //menuInflater.inflate(R.menu.menue xml file name, menu object);
+        menuInflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //this function is used to listen for click
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        //item.getItemId() will get the item id selected by the user
+        switch (item.getItemId()){
+            case R.id.dev_info:
+                Log.i("item","quad_eque selected");
+                Intent intent = new Intent(MainActivity.this,devActivity.class);
+                startActivity(intent);
+                //adding animation when opening new activity
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+                //return true; works same as a break statement it prevents the fall through of the switch case
+                return true;
+            default:
+                return false;
         }
     }
 }
